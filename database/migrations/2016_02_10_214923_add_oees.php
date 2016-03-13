@@ -15,12 +15,43 @@ class AddOees extends Migration
         DB::table('oees')->insert(array(
 		'created_at'=>date('Y-m-d H:m:s'),
 		'updated_at'=>date('Y-m-d H:m:s'),
-		'm1oee' => '90',
-		'm2oee' => '40',
-		'm3oee' => '20',
-		'm4oee' => '80'
+		'machine' => '1',
+		'oee' => '36',
+		'performance' => '40',
+		'availability' => '89',
+		'quality' => '100'
 	));
 
+	 DB::table('oees')->insert(array(
+                'created_at'=>date('Y-m-d H:m:s'),
+                'updated_at'=>date('Y-m-d H:m:s'),
+                'machine' => '2',
+                'oee' => '76',
+                'performance' => '83',
+                'availability' => '91',
+		'quality' => '100'
+        ));
+
+	 DB::table('oees')->insert(array(
+                'created_at'=>date('Y-m-d H:m:s'),
+                'updated_at'=>date('Y-m-d H:m:s'),
+                'machine' => '3',
+                'oee' => '30',
+                'performance' => '30',
+                'availability' => '99',
+		'quality' => '100'
+        ));
+
+	 DB::table('oees')->insert(array(
+                'created_at'=>date('Y-m-d H:m:s'),
+                'updated_at'=>date('Y-m-d H:m:s'),
+                'machine' => '4',
+                'oee' => '88',
+                'performance' => '91',
+                'availability' => '96',
+		'quality' => '100'
+        ));
+	
     }
 
     /**
@@ -31,6 +62,5 @@ class AddOees extends Migration
     public function down()
     {
         DB::table('oees')->where('m1oee', '=', '90')->delete();
-	DB::table('oees')->where('m1oee', '=', '70')->delete();
     }
 }

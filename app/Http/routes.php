@@ -33,14 +33,40 @@ Route::group(['middleware' => ['web']], function () {
 	'as' => 'oee'
     ]); 
 
+     Route::get('/oee/1', [
+        'uses' => 'OeeController@getOee1',
+        'as' => 'oee'
+    ]);
+
+    Route::get('/oee/2', [
+    'uses' => 'OeeController@getOee2',
+        'as' => 'oee'
+    ]);
+    
+    Route::get('/oee/3', [
+    'uses' => 'OeeController@getOee3',
+        'as' => 'oee'
+    ]);
+    
+    Route::get('/oee/4', [
+    'uses' => 'OeeController@getOee4',
+        'as' => 'oee'
+    ]);
+
    Route::get('/faults', [
         'uses' => 'FaultController@getFault',
         'as' => 'faults'
     ]);
 
-    Route::get('machines', function() {
-        return view('machines');
-    });
+    Route::get('/faultcount', [
+        'uses' => 'FaultController@getCount',
+        'as' => 'faultcount'
+    ]);
+
+    Route::get('/machines', [
+        'uses' => 'MachineController@getMachine',
+        'as' => 'machines'
+    ]);
 
     Route::post('/register',[
 	'uses' => 'UserController@postRegister', 
@@ -50,6 +76,11 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('/login',[
         'uses' => 'UserController@postLogIn',
         'as' => 'login'
+    ]);
+
+    Route::get('/logout',[
+        'uses' => 'UserController@getLogOut',
+        'as' => 'logout'
     ]);
 
     Route::get('/dashboard', [

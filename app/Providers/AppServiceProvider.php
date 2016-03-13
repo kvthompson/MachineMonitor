@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use View;
+use App\Fault;
+use App\Oee;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +16,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+	$faults = Fault::all();
+	$oees = Oee::all();
+        View::share(['counts' => $faults, 'oees' => $oees]);
     }
 
     /**

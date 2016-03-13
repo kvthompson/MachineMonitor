@@ -15,10 +15,11 @@ class CreateOeesTable extends Migration
         Schema::create('oees', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-	    $table->integer('m1oee');
-	    $table->integer('m2oee');
-	    $table->integer('m3oee');
-            $table->integer('m4oee');
+	    $table->integer('machine');
+	    $table->integer('oee');
+	    $table->integer('performance');
+	    $table->integer('availability');
+	    $table->integer('quality');
         });
     }
 

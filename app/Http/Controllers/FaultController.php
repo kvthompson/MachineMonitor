@@ -12,5 +12,11 @@ class FaultController extends Controller
                 $faults = Fault::all();
                 return view('faults', ['faults' => $faults]);
         }
+	
+	public function getCount()
+	{
+		$faultcount = Fault::count();
+		return view('includes.header', ['faultcount' => $faultcount]);
+	}
 }
 ?>

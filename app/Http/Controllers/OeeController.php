@@ -12,5 +12,31 @@ class OeeController extends Controller
 		$oees = Oee::all();
 		return view('oee', ['oees' => $oees]);
         }
+
+
+	public function getOee1()
+        {
+		$oees = Oee::all(); 
+                return view('oee1', ['oees' => $oees]);
+        }
+	
+	public function getOee2()
+        {
+                $oees = Oee::all();
+                return view('oee2', ['oees' => $oees]);
+        }
+
+	public function getOee3()
+        {
+                $oees = Oee::all();
+                return view('oee3', ['oees' => $oees]);
+        }
+
+	public function getOee4()
+        {
+                $oees = Oee::all();
+                return view('oee4', ['oees' => $oees]);
+        }
+	
 }
 ?>

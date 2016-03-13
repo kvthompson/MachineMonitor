@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMachinesTable extends Migration
+class CreateMonthlyoeesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,16 +12,14 @@ class CreateMachinesTable extends Migration
      */
     public function up()
     {
-        Schema::create('machines', function (Blueprint $table) {
+        Schema::create('monthlyoees', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-	    $table->integer('machine');
-	    $table->integer('batchNo');
-	    $table->integer('partNo');
-	    $table->string('partType');
-	    $table->integer('remainingQ');
-	    $table->integer('totalQ');
+            $table->string('month');
+            $table->integer('year');
+            $table->integer('oee');
         });
+
     }
 
     /**
@@ -31,6 +29,6 @@ class CreateMachinesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('machines');
+        //
     }
 }

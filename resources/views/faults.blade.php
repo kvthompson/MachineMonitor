@@ -11,4 +11,6 @@ Machine Manager
 {{ $fault->machine }}
 {{ $fault->error }}<br />
 @endforeach
+
+
 @endsection
