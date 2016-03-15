@@ -1,9 +1,0 @@
-@extends('layouts.master')
-
-@section('title')
-Machine Manager
-@endsection
-
-@section('content')
-Machine Page
-@endsection
