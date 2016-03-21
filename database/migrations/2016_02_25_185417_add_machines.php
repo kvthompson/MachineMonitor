@@ -18,7 +18,7 @@ class AddMachines extends Migration
                 'machine' => '1',
                 'batchNo' => '1',
                 'partNo' => '15',
-                'partType' => '6',
+                'partType' => 'SplitRing',
 		'remainingQ' => '4',
 		'totalQ' => '6'
         ));
@@ -30,7 +30,7 @@ class AddMachines extends Migration
                 'machine' => '2',
                 'batchNo' => '2',
                 'partNo' => '13',
-                'partType' => '2',
+                'partType' => 'Ballseat',
                 'remainingQ' => '5',
                 'totalQ' => '9'
         ));
@@ -41,7 +41,7 @@ class AddMachines extends Migration
                 'machine' => '3',
                 'batchNo' => '3',
                 'partNo' => '2',
-                'partType' => '16',
+                'partType' => 'Cementor',
                 'remainingQ' => '1',
                 'totalQ' => '7'
         ));
@@ -52,7 +52,7 @@ class AddMachines extends Migration
                 'machine' => '4',
                 'batchNo' => '4',
                 'partNo' => '11',
-                'partType' => '1',
+                'partType' => 'Rockseal',
                 'remainingQ' => '4',
                 'totalQ' => '5'
         ));

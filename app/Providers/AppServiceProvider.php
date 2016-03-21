@@ -4,7 +4,8 @@ namespace App\Providers;
 
 use View;
 use App\Fault;
-use App\Oee;
+use App\State;
+use App\Month;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -17,8 +18,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
 	$faults = Fault::all();
-	$oees = Oee::all();
-        View::share(['counts' => $faults, 'oees' => $oees]);
+	$months = Month::all();
+	$states = State::all();
+        View::share(['counts' => $faults, 'states' => $states, 'months' => $months]);
     }
 
     /**

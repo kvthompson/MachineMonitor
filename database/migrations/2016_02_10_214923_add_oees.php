@@ -61,6 +61,6 @@ class AddOees extends Migration
      */
     public function down()
     {
-        DB::table('oees')->where('m1oee', '=', '90')->delete();
+         DB::table('oees')->where('quality', '=', '100')->delete();
     }
 }
