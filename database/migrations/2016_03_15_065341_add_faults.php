@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFaultsTable extends Migration
+class AddFaults extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,12 @@ class CreateFaultsTable extends Migration
      */
     public function up()
     {
-        Schema::create('faults', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
-	    $table->string('machine');
-	    $table->text('error');
-        });
+	 DB::table('faults')->insert(array(
+                'created_at'=>date('Y-m-d H:m:s'),
+                'updated_at'=>date('Y-m-d H:m:s'),
+                'machine'=> 'Machine 2',
+                'error' => 'Torque Limit Reached'
+        ));        
     }
 
     /**
@@ -27,6 +27,6 @@ class CreateFaultsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('faults');
+        //
     }
 }

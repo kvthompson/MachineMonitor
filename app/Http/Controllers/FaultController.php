@@ -9,7 +9,7 @@ class FaultController extends Controller
 {
         public function getFault()
         {
-                $faults = Fault::all();
+                $faults = Fault::orderBy('created_at', 'ASC')->get();
                 return view('faults', ['faults' => $faults]);
         }
 	
