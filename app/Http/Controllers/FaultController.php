@@ -18,5 +18,17 @@ class FaultController extends Controller
 		$faultcount = Fault::count();
 		return view('includes.header', ['faultcount' => $faultcount]);
 	}
+
+	public function getDeleteFault($fault_id)
+	{
+		$fault = Fault::where('created_at', $fault_id)->first();
+		$fault->delete();
+		return redirect()->route('faults')->with(['message' => 'Successfully Attended']);
+	}
+
+	public function faultJson() {
+                $faults = Fault::all();
+                return \Response::json($faults);
+        }
 }
 ?>

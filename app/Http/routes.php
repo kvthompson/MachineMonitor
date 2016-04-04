@@ -54,13 +54,24 @@ Route::group(['middleware' => ['web']], function () {
     ]);
 
    Route::get('/faults', [
-        'uses' => 'FaultController@getFault',
+        'uses' => 'AttendFaultController@getFault',
         'as' => 'faults'
     ]);
 
     Route::get('/faultcount', [
-        'uses' => 'FaultController@getCount',
+        'uses' => 'AttendfaultController@getCount',
         'as' => 'faultcount'
+    ]);
+
+    Route::get('/delete-fault/{fault_id}', [
+    	'uses' => 'AttendFaultController@getDeleteFault',
+	'as' => 'fault.delete',
+	'middleware' => 'auth'
+    ]);
+
+     Route::get('/faultlog', [
+        'uses' => 'AttendFaultController@getFaultLog',
+        'as' => 'faultlog'
     ]);
 
     Route::get('/machines', [
@@ -89,4 +100,25 @@ Route::group(['middleware' => ['web']], function () {
 	'middleware' => 'auth'
     ]);
 
+    Route::get('/api/users', [
+    	'uses' => 'UserController@userJson',
+	'as' => 'users'
+    ]);
+
+    Route::get('/api/faults', [
+        'uses' => 'FaultController@faultJson',
+	'as' => 'apifaults'
+    ]);
+
+     Route::get('/api/machines', [
+        'uses' => 'MachineController@machineJson',
+        'as' => 'apimachines'
+    ]);
+
+     Route::get('/api/oees', [
+        'uses' => 'OeeController@oeeJson',
+        'as' => 'apioees'
+    ]);
+
 });
+

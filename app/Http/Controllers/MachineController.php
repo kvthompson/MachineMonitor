@@ -12,5 +12,10 @@ class MachineController extends Controller
                 $machines = Machine::all();
                 return view('machines', ['machines' => $machines]);
         }
+
+	public function machineJson() {
+                $machines = Machine::all();
+                return \Response::json($machines);
+        }
 }
 ?>

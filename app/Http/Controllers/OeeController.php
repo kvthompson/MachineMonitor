@@ -37,6 +37,11 @@ class OeeController extends Controller
                 $oees = Oee::all();
                 return view('oee4', ['oees' => $oees]);
         }
+
+	public function oeeJson() {
+                $oees = Oee::all();
+                return \Response::json($oees);
+        }
 	
 }
 ?>

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+
 	public function getDashboard()
 	{
 		return view('dashboard');
@@ -53,5 +54,11 @@ class UserController extends Controller
 		return redirect()->route('/');
 	}
 
+ 	public function userJson() {
+ 	        $users = User::all();
+	  	return \Response::json($users);
+   	}
+
 }
+
 ?>
