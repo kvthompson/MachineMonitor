@@ -5,6 +5,14 @@ Machine Manager
 @endsection
 
 @section('content')
+@include('includes.message')
+
+
+<script type="text/javascript">
+$( "div.success" ).fadeIn( 300 ).delay( 1500 ).fadeOut( 400 );
+</script>
+
+
 
 <!DOCTYPE html>
 <html>
@@ -135,6 +143,8 @@ FaultTable {
                     </tr>
                     
 @foreach($faults as $fault)
+	@if( $fault->attended == 'No')
+                      
 		    <tr>
                         <td>
                             {{ $fault->machine }}
@@ -143,9 +153,10 @@ FaultTable {
                             {{ $fault->error }}
                         </td>
                         <td>
-                            {{ $fault->created_at }} <dl> <input type="button" value = "Attend"></dl>
+                            {{ $fault->created_at }} <dl> <a href="{{ route('fault.delete', ['fault_id' => $fault->id]) }}"> Attend </a></dl>
                         </td>
                     </tr>
+	@endif
 @endforeach
                 </table>
             </div>

@@ -13,7 +13,7 @@ Machine Manager
 </section>
 
 <section class="col oee">
-<h4>Yearly OEE</h4>
+<h4>Monthly OEE</h4>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 

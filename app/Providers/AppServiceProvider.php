@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use View;
-use App\Fault;
+use App\Attendfault;
 use App\State;
 use App\Month;
 use Illuminate\Support\ServiceProvider;
@@ -17,7 +17,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-	$faults = Fault::all();
+	$faults = Attendfault::where('attended', '=', 'No')->get();
 	$months = Month::all();
 	$states = State::all();
         View::share(['counts' => $faults, 'states' => $states, 'months' => $months]);

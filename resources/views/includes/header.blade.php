@@ -27,6 +27,7 @@
         </li>
 	<li><a href="/machinemonitor/public/machines">Machines</a></li>
         <li><a href="/machinemonitor/public/faults">Faults <span class="badge">{{ count($counts) }}</span></a><li>
+	<li><a href="/machinemonitor/public/faultlog">Log</a><li>
 	</ul>
 
       <ul class="nav navbar-nav navbar-right">

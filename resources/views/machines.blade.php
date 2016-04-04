@@ -5,171 +5,175 @@ Machine Manager
 @endsection
 
 @section('content')
+
 <!DOCTYPE html>
 <html>
 <head>
 <style>
 
-h4 span{font-weight:normal}
-
-#header {
-    background-color:rgb(0, 48, 71);
-    color:white;
-    text-align:center;
-    width:500px;
-    padding:2px;
-    float:left;
-    margin-right:50px;
-}
-#nav {
-    line-height:30px;
-    background-color:#eeeeee;
-    height:200px;
-    width:200px;
-    text-align:right;
-    float:left;
-    padding: 10px;
-}
-#section {
-    width:300px;
-    height:200px;
-    text-align:left;
-    font-size:18px;
-    float:left;
-    margin-right:50px;
-    padding:10px;
+dl {
+    float: right;
+    padding: 0;
+    margin: 0;
 }
 
-#footer {
-    background-color:rgb(0,48,71);
-    color:white;
-    width:500px;
-    text-align:center;
-    padding:5px;
-    float:left;
-    margin-right:50px;
-    margin-bottom:50px;
+
+
+MachineTable {
+	   margin:0px;padding:0px;
+	   width:100%;
+	   box-shadow: 10px 10px 5px #888888;
+	   border:1px solid #ffffff;
+	   
+	   -moz-border-radius-bottomleft:0px;
+	   -webkit-border-bottom-left-radius:0px;
+	   border-bottom-left-radius:0px;
+	   
+	   -moz-border-radius-bottomright:0px;
+	   -webkit-border-bottom-right-radius:0px;
+	   border-bottom-right-radius:0px;
+	   
+	   -moz-border-radius-topright:0px;
+	   -webkit-border-top-right-radius:0px;
+	   border-top-right-radius:0px;
+	   
+	   -moz-border-radius-topleft:0px;
+	   -webkit-border-top-left-radius:0px;
+	   border-top-left-radius:0px;
+}.MachineTable table{
+    border-collapse: collapse;
+        border-spacing: 0;
+	width:100%;
+	height:100%;
+	margin:0px;padding:0px;
+}.MachineTable tr:last-child td:last-child {
+	     -moz-border-radius-bottomright:0px;
+	     -webkit-border-bottom-right-radius:0px;
+	     border-bottom-right-radius:0px;
 }
+.MachineTable table tr:first-child td:first-child {
+	    -moz-border-radius-topleft:0px;
+	    -webkit-border-top-left-radius:0px;
+	    border-top-left-radius:0px;
+}
+.MachineTable table tr:first-child td:last-child {
+	    -moz-border-radius-topright:0px;
+	    -webkit-border-top-right-radius:0px;
+	    border-top-right-radius:0px;
+}.MachineTable tr:last-child td:first-child{
+	     -moz-border-radius-bottomleft:0px;
+	     -webkit-border-bottom-left-radius:0px;
+	     border-bottom-left-radius:0px;
+}.MachineTable tr:hover td{
+	     
+}
+.MachineTable tr:nth-child(odd){ background-color:#cccccc; }
+.MachineTable tr:nth-child(even)    { background-color:#ffffff; }.FaultTable td{
+	    vertical-align:middle;
+	    
+	    
+	    border:1px solid #ffffff;
+	    border-width:0px 1px 1px 0px;
+	    text-align:left;
+	    padding:7px;
+	    font-size:15px;
+	    font-family:Arial;
+	    font-weight:normal;
+	    color:#000000;
+}.MachineTable tr:last-child td{
+	     border-width:0px 1px 0px 0px;
+}.MachineTable tr td:last-child{
+	     border-width:0px 0px 1px 0px;
+}.MachineTable tr:last-child td:last-child{
+	     border-width:0px 0px 0px 0px;
+}
+.MachineTable tr:first-child td{
+	    		   background:-o-linear-gradient(bottom, #002947 5%, #002947 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #002947), color-stop(1, #002947) );
+			   background:-moz-linear-gradient( center top, #002947 5%, #002947 100% );
+			   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#002947", endColorstr="#002947"); background: -o-linear-gradient(top,#002947,002947);
+
+			   background-color:#002947;
+			   border:0px solid #ffffff;
+			   text-align:center;
+			   border-width:0px 0px 1px 1px;
+			   font-size:14px;
+			   font-family:Arial;
+			   font-weight:bold;
+			   color:#ffffff;
+}
+.MachineTable tr:first-child:hover td{
+	    background:-o-linear-gradient(bottom, #002947 5%, #002947 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #002947), color-stop(1, #002947) );
+	    background:-moz-linear-gradient( center top, #002947 5%, #002947 100% );
+	    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#002947", endColorstr="#002947");	background: -o-linear-gradient(top,#002947,002947);
+
+	    background-color:#002947;
+}
+.MachineTable tr:first-child td:first-child{
+	    border-width:0px 0px 1px 0px;
+}
+.MachineTable tr:first-child td:last-child{
+	    border-width:0px 0px 1px 1px;
+}
+
 </style>
 </head>
+
 <body>
 
-<div id="header">
-<h1>Machine 1</h1>
-</div>
-
-<div id="header">
-<h1>Machine 2</h1>
-</div>
-
-
-<div id="nav">
-<td style="padding-top: 2px;"><h4>Batch Number: </h4> </td> 
-<h4>Part Number: </h4> 
-<h4>Part Type: </h4> 
-<h4>Remaining Quantity: </h4>
-<h4>Total Quantity: </h4> 
-</div>
-
-<div id="section">
-@foreach ($machines as $machine)
-                @if( $machine->machine == '1')
-		   	<td style="padding-top: 2px;"><h4><span>{{ $machine->batchNo }}</span></h4> </td>
-			<h4><span>{{ $machine->partNo }}</span></h4>
-			<h4><span>{{ $machine->partType }}</span></h4>
-			<h4><span>{{ $machine->remainingQ }}</span></h4>
-			<h4><span>{{ $machine->totalQ }}</span> </h4>
-		@endif
+<div class="MachineTable" >
+                <table>
+                    <tr>
+                        <td>
+                            Machine
+                        </td>
+                        <td >
+                            Batch Number
+                        </td>
+                        <td>
+                            Part Number
+                        </td>
+                        <td>
+                            Part Type
+                        </td>
+                        <td>
+                            Remaining Quantity
+                        </td>
+                        <td>
+                            Total Quantity
+                        </td>
+                    </tr>
+                    
+@foreach($machines as $machine)
+		    <tr>
+                        <td>
+                            {{ $machine->machine }}
+                        </td>
+                        <td>
+                            {{ $machine->batchNo }}
+                        </td>
+                        <td>
+                            {{ $machine->partNo }}
+                        </td>
+                        <td>
+                            {{ $machine->partType }}
+                        </td>
+                        <td>
+                            {{ $machine->remainingQ }}
+                        </td>
+                        <td>
+                            {{ $machine->totalQ }}
+                        </td>
+                    </tr>
 @endforeach
-</div>
+                </table>
+            </div>
+            
 
-<div id="nav">
-<td style="padding-top: 2px;"><h4>Batch Number: </h4> </td>
-<h4>Part Number: </h4>
-<h4>Part Type: </h4>
-<h4>Remaining Quantity: </h4>
-<h4>Total Quantity: </h4>
-</div>
-
-<div id="section">
-@foreach ($machines as $machine)
-                @if( $machine->machine == '2')
-                        <td style="padding-top: 2px;"><h4><span>{{ $machine->batchNo }}</span></h4> </td>
-                        <h4><span>{{ $machine->partNo }}</span></h4>
-                        <h4><span>{{ $machine->partType }}</span></h4>
-                        <h4><span>{{ $machine->remainingQ }}</span></h4>
-                        <h4><span>{{ $machine->totalQ }}</span> </h4>
-                @endif
-@endforeach
-</div>
-
-<div id="footer">
-</div>
-
-<div id="footer">
-</div>
-
-<div id="header">
-<h1>Machine 3</h1>
-</div>
-
-<div id="header">
-<h1>Machine 4</h1>
-</div>
-
-
-<div id="nav">
-<td style="padding-top: 2px;"><h4>Batch Number: </h4> </td>
-<h4>Part Number: </h4>
-<h4>Part Type: </h4>
-<h4>Remaining Quantity: </h4>
-<h4>Total Quantity: </h4>
-</div>
-
-<div id="section">
-@foreach ($machines as $machine)
-                @if( $machine->machine == '3')
-                        <td style="padding-top: 2px;"><h4><span>{{ $machine->batchNo }}</span></h4> </td>
-                        <h4><span>{{ $machine->partNo }}</span></h4>
-                        <h4><span>{{ $machine->partType }}</span></h4>
-                        <h4><span>{{ $machine->remainingQ }}</span></h4>
-                        <h4><span>{{ $machine->totalQ }}</span> </h4>
-                @endif
-@endforeach
-</div>
-
-<div id="nav">
-<td style="padding-top: 2px;"><h4>Batch Number: </h4> </td>
-<h4>Part Number: </h4>
-<h4>Part Type: </h4>
-<h4>Remaining Quantity: </h4>
-<h4>Total Quantity: </h4>
-</div>
-
-<div id="section">
-@foreach ($machines as $machine)
-                @if( $machine->machine == '4')
-                        <td style="padding-top: 2px;"><h4><span>{{ $machine->batchNo }}</span></h4> </td>
-                        <h4><span>{{ $machine->partNo }}</span></h4>
-                        <h4><span>{{ $machine->partType }}</span></h4>
-                        <h4><span>{{ $machine->remainingQ }}</span></h4>
-                        <h4><span>{{ $machine->totalQ }}</span> </h4>
-                @endif
-@endforeach
-</div>
-
-<div id="footer">
-</div>
-
-<div id="footer">
-</div>
 
 
 
 
 </body>
-
-
 </html>
 
 @endsection
